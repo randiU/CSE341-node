@@ -1,6 +1,13 @@
-const routes = require('express').Router();
-const myController = require('../controllers/index');
+const express = require('express');
+const router = express.Router();
+const indexController = require('../controllers/index');
 
-routes.get('/', myController.awesomeFunction, myController.twiceAsAwesomeFunction);
+router.get(
+  '/',
+  indexController.awesomeFunction,
+  indexController.twiceAsAwesomeFunction
+);
 
-module.exports = routes;
+router.use('/contacts', require('./contacts'));
+
+module.exports = router;

@@ -1,10 +1,23 @@
-const express = require("express");
+const express = require('express');
+const cors = require('cors');
+
+const { initDb } = require('./db/connect');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
-app.use('/', require('./routes/index'));
+app.use(cors());
+app.use(express.json());
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+// node will automatically look for an index.js file in the routes folder
+app.use('/', require('./routes'));
+
+initDb()
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`Connected to MongoDB and running on port ${PORT}`);
+    });
+  })
+  .catch((error) => {
+    console.error('Failed to connect to MongoDB:', error);
+  });
