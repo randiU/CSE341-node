@@ -3,7 +3,7 @@ const awesomeFunction = (req, res, next) => {
     next();
 };
 
-const twiceAsAwesomeFunction = (req, res, next) => {
+const twiceAsAwesomeFunction = (req, res) => {
     const name = req.query.name; // e.g., /?name=Randi
     res.send(`Insert your name into the query parameter, ${name || 'John Doe'}!`);
 }
