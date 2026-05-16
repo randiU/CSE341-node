@@ -99,4 +99,4 @@ Content-Type: application/json
 
 ### Render - Delete contact
 ### Replace the ID below with the ID returned from the Render POST request, or another real contact ID
-DELETE https://cse341-node-6216.onrender.com/contacts/PUT_CONTACT_ID_HERE
+DELETE https://cse341-node-6216.onrender.com/contacts/69febb5c26120c5c01b63b0c

@@ -1,12 +1,12 @@
 const express = require('express');
-// const cors = require('cors');
+const cors = require('cors');
 
 const { initDb } = require('./db/connect');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-// app.use(cors());
+app.use(cors());
 // built-in middleware to parse JSON bodies from post and put requests
 app.use(express.json());
 
